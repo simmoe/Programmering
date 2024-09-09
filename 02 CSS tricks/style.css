@@ -1,0 +1,105 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.page{
+    position:fixed;
+    top:0;
+    left:-100vw;
+    width:100vw;
+    height: 90vh;
+    overflow:hidden;
+    display:grid;
+    place-items:center;
+    transition: 0.3s 0.3s all ease-in-out;
+}
+
+.visible{
+    left:0;
+    transition: 0.3s all ease-in-out;
+}
+
+.box {
+    width:80%;
+    height:80%;
+    display:grid;
+    place-items:center;
+    border:1px solid white;
+    position:relative;
+}
+
+#imagebox{
+    background-image: url(./assets/matt-hardy-6ArTTluciuA-unsplash.jpg);
+    background-size: cover;
+    background-position: center center;
+    color:white;
+}
+
+#page1{
+    background-color: lightskyblue;
+}
+
+#page2{
+    background-color: lightgreen;
+}
+
+#gridbox{
+    grid-template-columns: 1fr 1fr;
+}
+
+#gridbox .boximage{
+    width:100%;
+    height:100%;
+    background-image: url(./assets/IMG_2517.jpg);
+    background-size: cover;
+    background-position: center 30%;
+}
+
+#page3{
+    background-color: green;
+}
+
+.fixed{
+    position:fixed;
+    top:2rem;
+    right:2rem;
+}
+.absolute{
+    position:absolute;
+    top:2rem;
+    right:2rem;
+}
+
+.fixed, .absolute{
+    color:white;
+}
+#page4{
+    background-color: lightseagreen;
+}
+
+h1{
+    font-family: Raleway;
+    color:hotpink;
+}
+
+#menu{
+    display:grid;
+    width:100vw;
+    height:10vh;
+    grid-template-columns: repeat(4, 1fr);
+    position: fixed;
+    z-index:2;
+    background-color:aliceblue;
+    bottom:0;
+    left:0;
+}
+
+.menuitem{
+    border-right: 1px solid lightgrey;
+    display:grid;
+    place-items: center;
+    font-size: 2rem;;
+    cursor: pointer;
+}
