@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.page{
+    position:fixed;
+    left:0;
+    top:0;
+    height: 100vh;
+    width:100vw;
+    overflow:scroll;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.left, .right{
+    width:100%;
+    height:100%;
+    padding:5vw;
+    display:grid;
+    place-items:center;
+    background-size: cover;
+}
+
+.left{
+    background-color:whitesmoke;
+}
+
+
+#page1{
+    background-color: lightskyblue;
+}
+
+h1{
+    font-family: Raleway;
+    color:hotpink;
+}
+
+p{
+    font-size: 2rem;
+}
+
+.weatherThumb{
+    width:6rem;
+    height:6rem;
+    background-size:cover;
+    border-radius: 50%;
+}
