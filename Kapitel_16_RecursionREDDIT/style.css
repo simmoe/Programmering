@@ -1,0 +1,30 @@
+.scene-selector{
+    display:grid;
+    width:10rem;
+    grid-template-columns: 2fr 3fr; 
+    align-items: center;
+    grid-template-rows: auto;
+}
+.scene-selector input{
+    margin-bottom:.5rem;
+}
+
+.comment{
+    border-radius:1rem;
+    margin:2rem;
+    border:1px solid blue;
+    padding:1rem;
+}
+
+.level1{
+    margin-left:5rem;
+}
+.level2{
+    margin-left:10rem;
+}
+.level3{
+    margin-left:15rem;
+}
+.level4{
+    margin-left:20rem;
+}
