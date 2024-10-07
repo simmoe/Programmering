@@ -1,6 +1,13 @@
+let query, button
+
 function setup(){
-    hentTopPosts("cats");
-    // Kalder funktionen 'hentTopPosts' med argumentet "cats" ved programmets start.
+    button = select('#searchButton')
+    button.mousePressed(
+        function(){
+            query = select('#query').value()
+            hentTopPosts(query)
+        }
+    )
 }
 
 async function hentTopPosts(subreddit) {
