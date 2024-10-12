@@ -37,3 +37,21 @@ h1 {
     background-color: green;
     border-radius:50%;
 }
+
+
+
+
+#connection{
+    position:absolute;
+    bottom:2rem;
+    left:2rem;
+}
+
+#defaultCanvas0{
+    position:absolute;
+}
+
+#chart{
+    top:0;
+    left:0;
+}

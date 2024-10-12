@@ -1,17 +1,25 @@
-let buttonDiv, header
+let buttonDiv
+
+let chartObject = [{
+  x: ['X pos', 'Y pos'],
+  y: [0, 0],
+  type: 'bar'
+}]
+
+let layout = {
+  yaxis: { range: [-180, 180] } // Fast range for Y-aksen
+}
 
 function setup() {
   buttonDiv = select('#button')
-  header = select('#header')
+
+  Plotly.newPlot('chart', chartObject, layout);
 
   client = mqtt.connect('wss://mqtt.nextservices.dk');
   client.subscribe('programmering');
 
-  client.on('message', function (topic, message) {
+  client.on('message', (topic, message) => {
     let data = JSON.parse(message)
-
-    //set header 
-    header.html(data.name)
 
     //handle button
     if(data.button){
@@ -21,5 +29,7 @@ function setup() {
       buttonDiv.removeClass('on')
       buttonDiv.html('off')
     }
+    //redraw diagram
+    Plotly.restyle('chart', 'y', [[data.X, data.Y]]);
   })
 }
