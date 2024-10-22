@@ -1,3 +1,5 @@
+
+//variabler til at indsætte i HTML 
 let m5NameDiv, m5StatusDiv
 
 //denne variabel bruges til at håndtere mqtt
