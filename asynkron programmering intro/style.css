@@ -67,9 +67,12 @@ header{
 }
 
 .post h1{
-    color:gray;
+    color:white;
     font-size:1.5rem;
     font-weight:bold;
+    background-color: rgba(0,0,0, 0.6);
+    padding:1rem;
+    border-radius:1rem;
     /* Styling af overskriften i hvert indlæg */
 }
 
@@ -88,3 +91,4 @@ header{
        - 'position:absolute' placerer elementet i forhold til .post.
        - 'display:grid' bruges her til nemt at centrere eller justere indholdet inden i forfatterfeltet. */
 }
+

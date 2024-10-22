@@ -1,18 +1,22 @@
-let name = "per"
-const surname = "jensen"
-
-
 function setup(){
-    hentTopPosts("denmark");
-    // Kalder funktionen 'hentTopPosts' med argumentet "cats" ved programmets start.
+    //hentTopPosts("");
+    //Kalder funktionen 'hentTopPosts' med argumentet "cats" ved programmets start.
+    select('#searchButton').mousePressed( function(){
+        subreddit = select('#searchInput').value()
+        hentTopPosts( subreddit )
+    } )
 }
 
 //async betyder at funktionen kan vente på at ting er færdige - fx at hente data
 async function hentTopPosts(subreddit) {
 
+    //lad os først tømme HTMl DIV'en 
+    select('#page1 .right').html('')
+
     //først sætter vi et repsonse objekt lig metoden fetch som henter data 
     //det tager noget tid, derfor keywordet "await"
-    const response = await fetch(`https://www.reddit.com/r/${subreddit}/top.json?limit=8`)
+    try { 
+        const response = await fetch(`https://www.reddit.com/r/${subreddit}/top.json?limit=8`)
         //når vi så får det objekt tilbage, og HVIS repsonse.ok = true
         //så kan vi bruge metoden .json() til at læse en readable stream 
         //den operation tager OGSÅ noget tid - derfor keywordet "await" IGEN 
@@ -31,7 +35,11 @@ async function hentTopPosts(subreddit) {
                 console.log(p.data.author)
                 createPost(p.data)
             }
+        } catch( e ){   
+            console.log('det skete en fejl', e)
+            select('#page1 .right').html('Der findes ikke en subreddit med det navn')
         }
+    }
         
         
 function createPost(post){
@@ -43,10 +51,12 @@ function createPost(post){
     let title = createElement('h1', post.title)
     //hver gang jeg har lavet et element, skal det ind i containeren
     container.child(title)
-    
-
-
-
+    //vi laver et link til posten på nettet 
+    let link = createA(post.url, 'Læs mere..')
+    //lægger det ind i containeren 
+    container.child(link)
+    //så laver vi billedet som baggrund til containeren
+    container.style('background-image', `url(${post.thumbnail})`)
+    //og lægger containeren ind i HTML dokumentet
     rightDiv.child(container)
-
 }   
