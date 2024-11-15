@@ -1,0 +1,97 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+.page{
+    position:fixed;
+    top:0;
+    left:-100vw;
+    width:100vw;
+    height: 100vh;
+    overflow:hidden;
+    display:grid;
+    place-items:center;
+    transition: 0.3s 0.3s all ease-in-out;
+}
+
+.visible{
+    left:0;
+    transition: 0.3s all ease-in-out;
+}
+
+#page1{
+}
+
+
+
+#page2{
+    background-color: lightgreen;
+}
+#page3{
+    background-color: lightcyan;
+}
+#page4{
+    background-color: lightseagreen;
+}
+
+h1{
+    font-family: Raleway;
+    color:hotpink;
+}
+
+/* Containeren til alle poster */
+#posts {
+    display: grid;
+    grid-auto-flow: column; /* Arranger posterne horisontalt */
+    grid-gap: 20px; /* Mellemrum mellem poster */
+    overflow-x: auto; /* Vandret scroll kun på posterne */
+    padding: 10px;
+    margin-left:4rem;
+    scroll-snap-type: x mandatory; /* Snap effekt når man scroller */
+    width: 100%; /* Sørg for at containeren fylder hele bredden */
+    max-height: 400px; /* Fast højde for at holde posterne inden for denne */
+    white-space: nowrap; /* Sørg for, at indholdet ikke bryder linjerne */
+}
+
+
+/* Styling af hver post */
+.post {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 250px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start; /* Snap hver post til begyndelsen ved scroll */
+    display: inline-block; /* Sørg for, at posterne holder sig inline */
+    white-space: normal; /* Tillad linjebrud i posten */
+}
+
+.post img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Stil til titlen */
+.post h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
