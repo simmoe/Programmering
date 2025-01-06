@@ -7,7 +7,7 @@ function setup() {
 }
 
 function fetchQuizQuestion() {
-  const apiUrl = 'https://opentdb.com/api.php?amount=1&type=multiple'
+  const apiUrl = 'https://opentdb.com/api.php?amount=1&category=12&difficulty=medium&type=boolean'
 
   fetch(apiUrl)
     .then(response => response.json())
